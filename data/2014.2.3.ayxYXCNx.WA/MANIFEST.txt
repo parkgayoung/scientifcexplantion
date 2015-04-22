@@ -1,0 +1,9 @@
+Job Title: WA
+Job ID: 2014.2.3.ayxYXCNx
+Requester: bmarwick
+Query: http://dfr.jstor.org/fsearch/submitrequest?cs=jcode%3Aworldarchaeology%5E1.0&fs=snm2&view=text&fc=tym1
+View(s): citations|wordcounts
+Format: CSV
+Documents Requested: 150000
+Date Processed: 2014-02-03 00:31:01.245347
+

@@ -24,7 +24,9 @@ Code
 
 ```{r}
 library("JSTORr")
-multiple_archives <- JSTOR_unpack_multiple_archives(mydir = "~/scientifcexplantion/data")
+# multiple_archives <- JSTOR_unpack_multiple_archives(mydir = "~/scientifcexplantion/data")
+save(multiple_archives, "multiple_archives.RData")
+load("data/multiple_archives.RData")
 ```
 
  

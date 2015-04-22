@@ -1,0 +1,9 @@
+Job Title: JAR
+Job ID: 2014.2.3.k8ubvk3n
+Requester: bmarwick
+Query: http://dfr.jstor.org/fsearch/submitrequest?fs=snm2&view=text&cc=jcode%3Ajarchrese%5E1.0
+View(s): citations|wordcounts
+Format: CSV
+Documents Requested: 150000
+Date Processed: 2014-02-03 01:05:01.812118
+
