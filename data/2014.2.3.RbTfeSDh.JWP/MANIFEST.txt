@@ -1,9 +1,0 @@
-Job Title: JWP
-Job ID: 2014.2.3.RbTfeSDh
-Requester: bmarwick
-Query: http://dfr.jstor.org/fsearch/submitrequest?fs=snm2&view=text&cc=jcode%3Ajworlprehist%5E1.0
-View(s): citations|wordcounts
-Format: CSV
-Documents Requested: 150000
-Date Processed: 2014-02-03 01:02:01.405806
-

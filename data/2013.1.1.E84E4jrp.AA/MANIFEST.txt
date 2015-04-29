@@ -1,9 +1,0 @@
-Job Title: AmAnt-fla-wordcount
-Job ID: 2013.1.1.E84E4jrp
-Requester: bmarwick
-Query: http://dfr.jstor.org/fsearch/submitrequest?cs=jcode%3Aameranti%5E1.0&fs=rtm1%3Atym1%3Asnm2&view=text&cc=ty%3Afla%5E1.0
-View(s): citations|wordcounts
-Format: CSV
-Documents Requested: 9000
-Date Processed: 2013-01-01 11:55:01.151184
-
