@@ -25,12 +25,15 @@ Code
 ```{r}
 library("JSTORr")
 library(dplyr)
-# multiple_archives <- JSTOR_unpack_multiple_archives(mydir = "~/scientifcexplantion/one_gram/data")
-save(multiple_archives, "data/one_gram/multiple_archives.RData")
-load("data/one_gram/multiple_archives.RData")
+#multiple_archives <- JSTOR_unpack_multiple_archives(mydir = "~/scientifcexplantion/one_gram/data")
+jfa <- JSTOR_unpack_multiple_archives(mydir = "~/scientifcexplantion/data/one_gram/jfa")
+#save(multiple_archives, "data/one_gram/multiple_archives.RData")
+#load("data/one_gram/multiple_archives.RData")
 ```
 
- 
+
+1. Analyses using all data corpus.
+
 ```{r}
 JSTOR_1word(multiple_archives, "extinction")
 
@@ -43,32 +46,73 @@ tmp1 <- JSTOR_2wordcor(multiple_archives, "extinction", "lithic")
 ```
 
 
+2. Analyses using one data corpus (JFA).
+
+(1)Example of pottery
 ```{r}
-#plot from Ben's JSTORr repository
+library(devtools)
 
-# subset the words to get nouns only
-nouns <-  JSTOR_dtmofnouns(multiple_archives, sparse = 0.75)
-
-# plot and tabulate the most frequent words over time
-JSTOR_freqwords(multiple_archives, nouns)
-
-JSTOR_findassocs(multiple_archives, nouns, "lithic")
-
-# plot and tabulate clusters of documents that contain the word 'pirate'
-JSTOR_clusterbywords(nouns, "lithic")
-```
-
-```{r}
 #plot from https://github.com/benmarwick/textual-macroanalysis-gender-archaeology/blob/master/gender.Rmd
 
 #Figure 5
 
 # top words per decade in articles containing 'lithic' 
-nouns <- JSTOR_dtmofnouns(multiple_archives, word = 'lithic', sparse = 1, POStag = TRUE)
+nouns <- JSTOR_dtmofnouns(jfa, word = NULL, sparse = 1, POStag = TRUE)
 
-PCA_lithic <- JSTOR_clusterbywords(nouns, "lithic", f = 0.005)
+PCA_pottery <- JSTOR_clusterbywords(nouns, "pottery", f = 0.005)
+```
 
-
+(2)Example of evolution
+```{r}
+PCA_evolution <- JSTOR_clusterbywords(nouns, "evolution", f = 0.005)
 
 ```
+
+(3)Example of hunter
+```{r}
+PCA_hunter<- JSTOR_clusterbywords(nouns, "hunter", f = 0.005)
+
+custom_stopwords <- c('archaeology', 'university', 'research', 'evidence', 'journal', 'world', 'site', 'cambridge', 'archaeol', 'area', 'region', 'period', 'analysis', 'anthropology', 'springer', 'production', 'figure', 'work', 'world', 'concept', 'human', 'middle', 'altamira', 'culture', 'record', 'citation', 'discipline', 'author', 'proportion', 'literature', 'report', 'approach', 'cambridge' )
+
+hunter_nouns <- JSTOR_dtmofnouns(jfa, word = "hunter", sparse = 1, POStag = TRUE)
+
+#here is some errors
+gender_freqwords <- JSTOR_freqwords(jfa, hunter_nouns, custom_stopwords, n = 3)
+
+```
+
+(4)Example of hunter and climate
+```{r}
+
+JSTOR_1word(jfa, "hunter")
+
+JSTOR_2words(jfa, "hunter", "climate")
+
+A <- JSTOR_2words(jfa, "hunter", "climate")
+
+JSTOR_2wordcor(jfa, "hunter", "climate")
+
+#why this code doesn't work??
+B <- JSTOR_2wordcor(jfa, "hunter", "climate")
+
+
+#I could get some plot from these codes.
+
+PCA_hunter_climate<- JSTOR_clusterbywords(nouns, c("hunter", "climate"))
+
+#I can get lots of information using $, %>%. For example, PCA_hunter_climate$PCA$call.
+
+
+custom_stopwords <- c('archaeology', 'university', 'research', 'evidence', 'journal', 'world', 'site', 'cambridge', 'archaeol', 'area', 'region', 'period', 'analysis', 'anthropology', 'springer', 'production', 'figure', 'work', 'world', 'concept', 'human', 'middle', 'altamira', 'culture', 'record', 'citation', 'discipline', 'author', 'proportion', 'literature', 'report', 'approach', 'cambridge' )
+
+hunter_climate_nouns <- JSTOR_dtmofnouns(jfa, word = c("hunter", "climate"), sparse = 1, POStag = TRUE)
+
+```
+
+Related to question three, the relationship between climate change and lithics, I examined the frequency of words which involve "hunter" and "climate" in the articles of Journal of Field Archaeology. The graphs illustrate the tandancy of using those two words as time passed. Each word has been used frequently from 1970 to 2007 but the combination of those two words mostly used at 1990 and 2002.
+
+  
+
+
+
 
