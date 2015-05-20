@@ -14,7 +14,7 @@ install_github("benmarwick/JSTORr")
 ```
 
 
-Three potential questions relating with my research question. My research topic is stemmed points and I would like to figure out the driver that let people to make the points and the cause of the changes in stemmed points throughout the Upper Paleolithic in Korea. 
+Three potential questions relating with my research question. My research topic is stemmed points and I would like to figure out the driver that let people to make the points and the cause of the changes in stemmed points throughout the Upper Paleolithic in Korea. okay
 
 1. How can I connect the theory of evolution and the starting point of new lithics such as stemmed point in the Upper Plaeolitic period.
 2. Is there some relationshipe between the extinction of mammals such as mammoth and change of stone tool? If so, I would like to see the transion between phase to phase of stemmed point based on the theory of the extinction.
