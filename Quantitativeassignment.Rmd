@@ -25,17 +25,23 @@ Code
 ```{r}
 library("JSTORr")
 library(dplyr)
-#multiple_archives <- JSTOR_unpack_multiple_archives(mydir = "~/scientifcexplantion/one_gram/data")
-jfa <- JSTOR_unpack_multiple_archives(mydir = "~/scientifcexplantion/data/one_gram/jfa")
-#save(multiple_archives, "data/one_gram/multiple_archives.RData")
-#load("data/one_gram/multiple_archives.RData")
+#multiple_archives <- JSTOR_unpack_multiple_archives(mydir = "~/scientifcexplantion/data/one_gram")
+#jfa <- JSTOR_unpack_multiple_archives(mydir = "~/scientifcexplantion/data/one_gram/jfa")
+#save(multiple_archives, file="~/scientifcexplantion/data/one_gram/multiple_archives.RData")
+
+load("data/one_gram/multiple_archives.RData")
 ```
 
 
 1. Analyses using all data corpus.
 
 ```{r}
+
 JSTOR_1word(multiple_archives, "extinction")
+extinction <- JSTOR_1word(multiple_archives, "extinction")
+extinction$plot
+extinction_tbl <-extinction$word_by_year
+extinction_tbl[which.max(extinction_tbl$word_ratio),]
 
 tmp <- JSTOR_2words(multiple_archives, "extinction", "lithic")
 # how to find the article with high frequency of the word
