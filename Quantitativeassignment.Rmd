@@ -47,7 +47,7 @@ tmp <- JSTOR_2words(multiple_archives, "extinction", "lithic")
 # how to find the article with high frequency of the word
 tmp$words_by_year %>%
   filter(value > 3)
-
+library(plyr)
 tmp1 <- JSTOR_2wordcor(multiple_archives, "extinction", "lithic")
 ```
 
@@ -63,7 +63,7 @@ library(devtools)
 #Figure 5
 
 # top words per decade in articles containing 'lithic' 
-nouns <- JSTOR_dtmofnouns(jfa, word = NULL, sparse = 1, POStag = TRUE)
+nouns <- JSTOR_dtmofnouns(multiple_archives, word = NULL, sparse = 1, POStag = TRUE)
 
 PCA_pottery <- JSTOR_clusterbywords(nouns, "pottery", f = 0.005)
 ```
