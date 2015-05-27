@@ -117,7 +117,63 @@ hunter_climate_nouns <- JSTOR_dtmofnouns(jfa, word = c("hunter", "climate"), spa
 
 Related to question three, the relationship between climate change and lithics, I examined the frequency of words which involve "hunter" and "climate" in the articles of Journal of Field Archaeology. The graphs illustrate the tandancy of using those two words as time passed. Each word has been used frequently from 1970 to 2007 but the combination of those two words mostly used at 1990 and 2002.
 
-  
+
+
+#Keywords: lithic, extinction, evolution, projectile, Paleolithic, blade, climate
+
+#extinction, extinction&lithic
+
+```{r}
+JSTOR_1word(multiple_archives, "extinction")
+JSTOR_2words(multiple_archives, "extinction", "lithic")
+JSTOR_2wordcor(multiple_archives, "extinction", "lithic")
+nouns <- JSTOR_dtmofnouns(multiple_archives, sparse = 1, POStag = FALSE)
+PCA_extinction <- JSTOR_clusterbywords(nouns, "extinction", f = 0.005)
+custom_stopwords <- c('archaeology', 'university', 'research', 'evidence', 'journal', 'world', 'site', 'cambridge', 'archaeol', 'area', 'region', 'period', 'analysis', 'anthropology', 'springer', 'production', 'figure', 'work', 'world', 'concept', 'human', 'middle', 'altamira', 'culture', 'record', 'citation', 'discipline', 'author', 'proportion', 'literature', 'report', 'approach', 'cambridge' )
+extinction_nouns <- JSTOR_dtmofnouns(multiple_archives, word = "extinction", sparse = 1, POStag = TRUE)
+
+PCA_extinction_lithic <- JSTOR_clusterbywords(nouns, c("extinction","lithic"), f = 0.005)
+extinction_lithic_nouns <- JSTOR_dtmofnouns(multiple_archives, word = c("extinction","lithic"), sparse = 1, POStag = TRUE)
+```
+
+#evolution, evolution&lithic
+
+```{r}
+JSTOR_1word(multiple_archives, "evolution")
+JSTOR_2words(multiple_archives, "evolution", "lithic")
+JSTOR_2wordcor(multiple_archives, "evolution", "lithic")
+nouns <- JSTOR_dtmofnouns(multiple_archives, word = NULL, sparse = 1, POStag = TRUE)
+PCA_evolution <- JSTOR_clusterbywords(nouns, "evolution", f = 0.005)
+custom_stopwords <- c('archaeology', 'university', 'research', 'evidence', 'journal', 'world', 'site', 'cambridge', 'archaeol', 'area', 'region', 'period', 'analysis', 'anthropology', 'springer', 'production', 'figure', 'work', 'world', 'concept', 'human', 'middle', 'altamira', 'culture', 'record', 'citation', 'discipline', 'author', 'proportion', 'literature', 'report', 'approach', 'cambridge' )
+evolution_nouns <- JSTOR_dtmofnouns(multiple_archives, word = "evolution", sparse = 1, POStag = TRUE)
+
+PCA_evolution_lithic <- JSTOR_clusterbywords(nouns, c("evolution","lithic"), f = 0.005)
+evolution_lithic_nouns <- JSTOR_dtmofnouns(multiple_archives, word = c("evolution","lithic"), sparse = 1, POStag = TRUE)
+```
+
+
+#climate, climate&lithic
+
+```{r}
+JSTOR_1word(multiple_archives, "climate")
+JSTOR_2words(multiple_archives, "climate", "lithic")
+JSTOR_2wordcor(multiple_archives, "climate", "lithic")
+nouns <- JSTOR_dtmofnouns(multiple_archives, word = NULL, sparse = 1, POStag = TRUE)
+PCA_climate <- JSTOR_clusterbywords(nouns, "climate", f = 0.005)
+custom_stopwords <- c('archaeology', 'university', 'research', 'evidence', 'journal', 'world', 'site', 'cambridge', 'archaeol', 'area', 'region', 'period', 'analysis', 'anthropology', 'springer', 'production', 'figure', 'work', 'world', 'concept', 'human', 'middle', 'altamira', 'culture', 'record', 'citation', 'discipline', 'author', 'proportion', 'literature', 'report', 'approach', 'cambridge' )
+climate_nouns <- JSTOR_dtmofnouns(multiple_archives, word = "climate", sparse = 1, POStag = TRUE)
+
+PCA_climate_lithic <- JSTOR_clusterbywords(nouns, c("climate","lithic"), f = 0.005)
+climate_lithic_nouns <- JSTOR_dtmofnouns(multiple_archives, word = c("climate","lithic"), sparse = 1, POStag = TRUE)
+```
+
+#projectile, Paleolithic, blade
+
+```{r}
+JSTOR_1word(multiple_archives, "projectile")
+JSTOR_2words(multiple_archives, "paleolithic", "projectile")
+JSTOR_2wordcor(multiple_archives, "paleolithic", "projectile")
+```
 
 
 
