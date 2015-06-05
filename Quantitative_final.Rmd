@@ -10,31 +10,48 @@ output: rmarkdown::tufte_handout
 knitr::opts_chunk$set(message=FALSE, warning=FALSE, cache=TRUE, echo=FALSE)
 ```
 
+##Introduction
+The main purpose of this paper is to find the relationship between several keywords which are related with my research questions by exploring sets of archaeological keys words in corpus based on archaeological journals. I expect that the results of this project will provide background knowledge about my topics and tendency of relating studies. 
+
+##Hypothesis to test
+
+Three potential questions are related with my research subject that is about stemmed points in Upper Paleolithic Korean peninsula and main focus of the subject is to figure out the driver(s) that let people produce the lithics and the cause(s) of the changes in stemmed points throughout the Upper Paleolithic in Korea. My hypothesis is that possible causes of producing stemmed points might be interpreted with evolutionary theory, extinction theory, and climate change. For example, due to climate change, the main food resources such as animals and plants were extinct so hunter-gatherers tried to survive adapting the new environmental with using new tools in the mechanism of evolutionary theory. 
+
+Based on my hypothesis, I make three questions:
+(1) How can I connect the theory of evolution and the starting point of new lithics such as stemmed point in the Upper Paleolithic period?
+(2) Is there some relationship between the extinction of mammals such as mammoth and change of stone tool? If so, I would like to see the transition between phase to phase of stemmed point based on the theory of the extinction.
+(3) Which attributes on lithics I should choose to figure out changing aspect of lithic according to climate change?
+
+
 ```{r}
 library(devtools)
 # install_github("benmarwick/JSTORr")
 ```
 
 
-Three potential questions relating with my research question. My research topic is stemmed points and I would like to figure out the driver that let people to make the points and the cause of the changes in stemmed points throughout the Upper Paleolithic in Korea. okay
-
-1. How can I connect the theory of evolution and the starting point of new lithics such as stemmed point in the Upper Plaeolitic period.
-2. Is there some relationshipe between the extinction of mammals such as mammoth and change of stone tool? If so, I would like to see the transion between phase to phase of stemmed point based on the theory of the extinction.
-3. Which attributes on lithic I should choose to figure out the change of lithic according of climate change?
-
-Code
-
 ```{r}
 library("JSTORr")
 library(dplyr)
 #multiple_archives <- JSTOR_unpack_multiple_archives(mydir = "~/scientifcexplantion/data/one_gram")
-#jfa <- JSTOR_unpack_multiple_archives(mydir = "~/scientifcexplantion/data/one_gram/jfa")
 #save(multiple_archives, file="~/scientifcexplantion/data/one_gram/multiple_archives.RData")
-
 load("data/one_gram/multiple_archives.RData")
 ```
 
 
+#extinction, extinction&lithic
+
+```{r}
+JSTOR_1word(multiple_archives, "extinction")
+JSTOR_2words(multiple_archives, "extinction", "lithic")
+JSTOR_2wordcor(multiple_archives, "extinction", "lithic")
+nouns <- JSTOR_dtmofnouns(multiple_archives, sparse = 1, POStag = FALSE)
+PCA_extinction <- JSTOR_clusterbywords(nouns, "extinction", f = 0.005)
+custom_stopwords <- c('archaeology', 'university', 'research', 'evidence', 'journal', 'world', 'site', 'cambridge', 'archaeol', 'area', 'region', 'period', 'analysis', 'anthropology', 'springer', 'production', 'figure', 'work', 'world', 'concept', 'human', 'middle', 'altamira', 'culture', 'record', 'citation', 'discipline', 'author', 'proportion', 'literature', 'report', 'approach', 'cambridge' )
+extinction_nouns <- JSTOR_dtmofnouns(multiple_archives, word = "extinction", sparse = 1, POStag = TRUE)
+
+PCA_extinction_lithic <- JSTOR_clusterbywords(nouns, c("extinction","lithic"), f = 0.005)
+extinction_lithic_nouns <- JSTOR_dtmofnouns(multiple_archives, word = c("extinction","lithic"), sparse = 1, POStag = TRUE)
+```
 
 #evolution, evolution&lithic
 
