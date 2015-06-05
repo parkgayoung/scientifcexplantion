@@ -1,0 +1,75 @@
+---
+title: "Quantitative assignment"
+author: "Gayoung Park"
+date: "June 4th, 2015"
+output: rmarkdown::tufte_handout
+---
+
+```{r setup, echo=FALSE}
+# install.packages(pkgs = "devtools", dependencies = TRUE)
+knitr::opts_chunk$set(message=FALSE, warning=FALSE, cache=TRUE, echo=FALSE)
+```
+
+```{r}
+library(devtools)
+# install_github("benmarwick/JSTORr")
+```
+
+
+Three potential questions relating with my research question. My research topic is stemmed points and I would like to figure out the driver that let people to make the points and the cause of the changes in stemmed points throughout the Upper Paleolithic in Korea. okay
+
+1. How can I connect the theory of evolution and the starting point of new lithics such as stemmed point in the Upper Plaeolitic period.
+2. Is there some relationshipe between the extinction of mammals such as mammoth and change of stone tool? If so, I would like to see the transion between phase to phase of stemmed point based on the theory of the extinction.
+3. Which attributes on lithic I should choose to figure out the change of lithic according of climate change?
+
+Code
+
+```{r}
+library("JSTORr")
+library(dplyr)
+#multiple_archives <- JSTOR_unpack_multiple_archives(mydir = "~/scientifcexplantion/data/one_gram")
+#jfa <- JSTOR_unpack_multiple_archives(mydir = "~/scientifcexplantion/data/one_gram/jfa")
+#save(multiple_archives, file="~/scientifcexplantion/data/one_gram/multiple_archives.RData")
+
+load("data/one_gram/multiple_archives.RData")
+```
+
+
+
+#evolution, evolution&lithic
+
+```{r}
+x1 <- JSTOR_1word(multiple_archives, "evolution")
+x1$plot
+x2 <- JSTOR_2words(multiple_archives, "evolution", "lithic")
+x3 <- JSTOR_2wordcor(multiple_archives, "evolution", "lithic")
+
+```
+
+
+#climate, climate&lithic
+
+```{r}
+x4 <- JSTOR_1word(multiple_archives, "climate")
+x5 <- JSTOR_2words(multiple_archives, "climate", "lithic")
+x6 <- JSTOR_2wordcor(multiple_archives, "climate", "lithic")
+
+```
+
+#projectile, Paleolithic, blade
+
+```{r}
+x7 <- JSTOR_1word(multiple_archives, "projectile")
+x8 <- JSTOR_2words(multiple_archives, "paleolithic", "projectile")
+x9 <- JSTOR_2wordcor(multiple_archives, "paleolithic", "projectile")
+```
+
+
+
+
+
+
+
+
+
+
