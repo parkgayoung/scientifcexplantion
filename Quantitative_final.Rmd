@@ -25,9 +25,8 @@ Based on my hypothesis, I make three questions:
 (3) Which attributes on lithics I should choose to figure out changing aspect of lithic according to climate change?
 
 ##Key terms
+The keywords for this project are **lithic**, **extinction**, evolution**, **climate**. I think these four words are apparently the most important key terms in my research questions to explore data collection. Through three different combinations of **lithic** and other keywords, I hope that I can find a certain clue of my further research.  
 
-##Exploratory Data Analysis
-provides data of five journals (American Antiquity, Journal of Archaeological Research, World Archaeology, Journal of World Prehistory, and Journal of Field Archaeology) as corpus. Even though JSTORr couldn’t contain data of all Journals relating archaeology but still the data is quite big to run the code in my computer, I used Amazon cloud computer service. [@hester_late_1960],[@dunnell_cultural_1980],[@meltzer_would_2010]
 
 ```{r}
 library(devtools)
@@ -47,6 +46,7 @@ load("data/one_gram/multiple_archives.RData")
 #extinction, extinction&lithic
 
 ```{r}
+#Figure 1
 # one words
 extinction <- JSTOR_1word(multiple_archives, "extinction")
 extinction$plot
@@ -55,3 +55,127 @@ extinction_tbl[which.max(extinction_tbl$word_ratio),]
 #searching article url:http://www.jstor.org/stable/last6digits  
 #[@Hester_1960]
 ```
+
+```{r}
+#Figure 2
+# two words
+ex_lithic <- JSTOR_2words(multiple_archives, "extinction", "lithic")
+ex_lithic$plot
+```
+
+```{r}
+#Figure 3
+# correlation of two words
+co_ex_lithic <- JSTOR_2wordcor(multiple_archives, "extinction", "lithic")
+co_ex_lithic$plot
+```
+
+```{r}
+#Figure 4
+nouns <- JSTOR_dtmofnouns(multiple_archives, sparse = 1, POStag = FALSE)
+PCA_extinction <- JSTOR_clusterbywords(nouns, "extinction", f = 0.005)
+```
+
+```{r}
+#delete common archaeological words
+custom_stopwords <- c('archaeology', 'university', 'research', 'evidence', 'journal', 'world', 'site', 'cambridge', 'archaeol', 'area', 'region', 'period', 'analysis', 'anthropology', 'springer', 'production', 'figure', 'work', 'world', 'concept', 'human', 'middle', 'altamira', 'culture', 'record', 'citation', 'discipline', 'author', 'proportion', 'literature', 'report', 'approach', 'cambridge' )
+```
+
+```{r}
+#Figure 5
+extinction_nouns <- JSTOR_dtmofnouns(multiple_archives, word = "extinction", sparse = 1, POStag = TRUE)
+extinction_freqwords <- JSTOR_freqwords(multiple_archives, extinction_nouns, custom_stopwords, n = 5)
+```
+
+```{r}
+#Figure 6
+ex_lithic_nouns <- JSTOR_dtmofnouns(multiple_archives, word = c("extinction","lithic"), sparse = 1, POStag = TRUE)
+ex_lithic_freqwords <- JSTOR_freqwords(multiple_archives, ex_lithic_nouns, custom_stopwords, n = 5)
+```
+
+
+#evolution, evolution&lithic
+
+
+```{r}
+# one words
+evolution <- JSTOR_1word(multiple_archives, "evolution")
+evolution$plot
+evolution_tbl <- evolution$word_by_year
+evolution_tbl[which.max(evolution_tbl$word_ratio),]
+#[@Dunnell and Dunnell_1960]
+```
+
+```{r}
+# two words
+ev_lithic <- JSTOR_2words(multiple_archives, "evolution", "lithic")
+ev_lithic$plot
+```
+
+```{r}
+# correlation of two words
+co_ev_lithic <- JSTOR_2wordcor(multiple_archives, "evolution", "lithic")
+co_ev_lithic$plot
+```
+
+```{r}
+PCA_evolution <- JSTOR_clusterbywords(nouns, "evolution", f = 0.005)
+```
+
+```{r}
+evolution_nouns <- JSTOR_dtmofnouns(multiple_archives, word = "evolution", sparse = 1, POStag = TRUE)
+evolution_freqwords <- JSTOR_freqwords(multiple_archives, evolution_nouns, custom_stopwords, n = 5)
+```
+
+```{r}
+ev_lithic_nouns <- JSTOR_dtmofnouns(multiple_archives, word = c("evolution","lithic"), sparse = 1, POStag = TRUE)
+ev_lithic_freqwords <- JSTOR_freqwords(multiple_archives, ev_lithic_nouns, custom_stopwords, n = 5)
+
+```
+
+
+#climate, climate&lithic
+
+```{r}
+# one words
+climate <- JSTOR_1word(multiple_archives, "climate")
+climate$plot
+climate_tbl <- climate$word_by_year
+climate_tbl[which.max(climate_tbl$word_ratio),]
+#[@Meltzer and Holliday_2010]
+```
+
+
+```{r}
+# two words
+cl_lithic <- JSTOR_2words(multiple_archives, "climate", "lithic")
+cl_lithic$plot
+```
+
+```{r}
+# correlation of two words
+co_cl_lithic <- JSTOR_2wordcor(multiple_archives, "climate", "lithic")
+co_cl_lithic$plot
+```
+
+```{r}
+PCA_climate <- JSTOR_clusterbywords(nouns, "climate", f = 0.005)
+```
+
+```{r}
+climate_nouns <- JSTOR_dtmofnouns(multiple_archives, word = "climate", sparse = 1, POStag = TRUE)
+climate_freqwords <- JSTOR_freqwords(multiple_archives, climate_nouns, custom_stopwords, n = 5)
+```
+
+```{r}
+cl_lithic_nouns <- JSTOR_dtmofnouns(multiple_archives, word = c("climate","lithic"), sparse = 1, POStag = TRUE)
+cl_lithic_freqwords <- JSTOR_freqwords(multiple_archives, ev_lithic_nouns, custom_stopwords, n = 5)
+
+```
+
+
+
+
+##Discussion
+
+
