@@ -33,16 +33,20 @@ The main purpose of this paper is to find the relationship between several keywo
 Three potential questions are related with my research subject that is about stemmed points in Upper Paleolithic Korean peninsula and main focus of the subject is to figure out the driver(s) that let people produce the lithics and the cause(s) of the changes in stemmed points throughout the Upper Paleolithic in Korea. My hypothesis is that possible causes of producing stemmed points might be interpreted with evolutionary theory, extinction theory, and climate change. For example, due to climate change, the main food resources such as animals and plants were extinct so hunter-gatherers tried to survive adapting the new environmental with using new tools in the mechanism of evolutionary theory. 
 
 Based on my hypothesis, I make three questions:
-(1) How can I connect the theory of evolution and the starting point of new lithics such as stemmed point in the Upper Paleolithic period?
-(2) Is there some relationship between the extinction of mammals such as mammoth and change of stone tool? If so, I would like to see the transition between phase to phase of stemmed point based on the theory of the extinction.
-(3) Which attributes on lithics I should choose to figure out changing aspect of lithic according to climate change?
+(1) Is there some relationship between the extinction of mammals such as mammoth and change of stone tool? If so, I would like to see the transition between phase to phase of stemmed point based on the theory of the extinction.
+(2) How can I connect the theory of evolution and the starting point of new lithics such as stemmed point in the Upper Paleolithic period?
+ (3) Which attributes on lithics I should choose to figure out changing aspect of lithic according to climate change?
 
 ##Key terms
 The keywords for this project are **lithic**, **extinction**, **evolution**, **climate**. I think these four words are apparently the most important key terms in my research questions to explore data collection. Through three different combinations of **lithic** and other keywords, I hope that I can find a certain clue of my further research.  
 
+##Exploratory Data Analysis
+Provided data collection, or corpus, is consisted of five journals: American Antiquity, Journal of Archaeological Research, World Archaeology, Journal of World Prehistory, and Journal of Field Archaeology. The mechanism of this project is quite simple statistic. I used specific functions which show frequency of use of the one word and two words in corpus and visualize the result with plot. They also show the relationship between two words by showing the frequency of use in articles.
 
 
-1. extinction, extinction&lithic
+1.  Lithic and extinction
+To approach the first question, the relationship between the theory of extinction and its impact on lithics, I analyze the frequency of words, lithic and extinction. Figure 1 illustrates the frequency of extinction in the corpus from 1930’s to 2012. Extinction has become common word in archaeology but the frequency per 1000 words is decreasing. The word lithic is also popular but it keeps being used in high frequency per 1000 words (Figure 2). Especially after 70’s the number of use of the two words are highly increasing, I think it follows the growth of archaeological research. According to Figure 3, the degree of correlation between the two words seems not high. The size of dot indicates the strength of the relationship for all articles per year. I can see relatively bigger dot in 2006, but it still indicates only 0.5 point which is not a strong relationship. At least, the point, higher than 1.0, can be regarded as a strong relationship. Figure 4 shows associated words relating extinction used in article. I divide the period from 1988 to 2012 per 5 years. Among them, from 1998 to 2002, the word Pleistocene was used over 900 times with extinction. Besides, shell, population, stone, Paleolithic were used frequently. Like figure4, figure 5 indicates associated words relating not just extinction but both lithic and extinction. From 1975 to 2008, the frequency of the words increased, the word settlement was used over 3000, stone, point, population were used frequently. Except less-meaningful words such as number or field, the result is quite useful to my research question, the theory of extinction and its impact on lithics. Especially, if one of frequent word, point means projectile point, then the result would perfectly match with my expectation. To test my hypothesis, I search the most correlated article for word extinction in my journal data using specific function. The article is as following: Jim J. Hester, 1960, Late Pleistoncene Extinction and Radiocarbon Dating, American Antiquity, 26, 1:58-77. In this article, the author points out errors in existing knowledge of extinct period of last Pleistocene mammals in North America and he corrects the sequence based on radio carbon dated. Even though his main point is dating and sequence of extinction of American mammal, I can find the relationship between the extinction of mammals and lithics, especially, points. He mentions Clovis points, Lerma points, and flake point with extinction [@hester_late_1960]. Therefore I can expect that there was correlation between the extinction of mammals and its impact on lithics, points, in Upper Paleolithic period. And my research question is worth to look into it. 
+
 
 ```{r}
 #Figure 1
@@ -61,21 +65,25 @@ Figure 1. Frequency of extinction
 #Figure 2
 # two words
 ex_lithic <- JSTOR_2words(multiple_archives, "extinction", "lithic")
-ex_lithic$plot
+ex_lithic$plot 
+#
 ```
 Figure 2. Frequency of extinction and lithic
+
 
 ```{r}
 #Figure 3
 # correlation of two words
 co_ex_lithic <- JSTOR_2wordcor(multiple_archives, "extinction", "lithic")
 co_ex_lithic$plot
+
 ```
 Figure 3. Correlation of extinction and lithic
 
 ```{r}
 #create a document term matrix of nouns only
 nouns <- JSTOR_dtmofnouns(multiple_archives, sparse = 1, POStag = FALSE)
+
 #delete common archaeological words
 custom_stopwords <- c('archaeology', 'university', 'research', 'evidence', 'journal', 'world', 'site', 'cambridge', 'archaeol', 'area', 'region', 'period', 'analysis', 'anthropology', 'springer', 'production', 'figure', 'work', 'world', 'concept', 'human', 'middle', 'altamira', 'culture', 'record', 'citation', 'discipline', 'author', 'proportion', 'literature', 'report', 'approach', 'cambridge' )
 ```
@@ -88,7 +96,7 @@ extinction_freqwords <- JSTOR_freqwords(multiple_archives, extinction_nouns, cus
 Figure 4. Words relating extinction
 
 ```{r}
-#Figure 5 
+#Figure 5
 ex_lithic_nouns <- JSTOR_dtmofnouns(multiple_archives, word = c("extinction","lithic"), sparse = 1, POStag = TRUE)
 ex_lithic_freqwords <- JSTOR_freqwords(multiple_archives, ex_lithic_nouns, custom_stopwords, n = 5)
 ```
@@ -108,7 +116,6 @@ evolution_tbl[which.max(evolution_tbl$word_ratio),]
 ```
 Figure 6. Frequency of evolution 
 
-
 ```{r}
 #Figure 7
 # two words
@@ -117,7 +124,6 @@ ev_lithic$plot
 ```
 Figure 7. Frequency of evolution and lithic
 
-
 ```{r}
 #Figure 8
 # correlation of two words
@@ -125,7 +131,6 @@ co_ev_lithic <- JSTOR_2wordcor(multiple_archives, "evolution", "lithic")
 co_ev_lithic$plot
 ```
 Figure 8. Correlation of evolution and lithic
-
 
 ```{r}
 #Figure 9
@@ -155,6 +160,7 @@ climate_tbl[which.max(climate_tbl$word_ratio),]
 ```
 Figure 11. Frequency of climate 
 
+
 ```{r}
 #Figure 12
 # two words
@@ -162,6 +168,7 @@ cl_lithic <- JSTOR_2words(multiple_archives, "climate", "lithic")
 cl_lithic$plot
 ```
 Figure 12. Frequency of climate and lithic
+
 
 
 ```{r}
@@ -172,7 +179,6 @@ co_cl_lithic$plot
 ```
 Figure 13. Correlation of climate and lithic
 
-
 ```{r}
 #Figure 14
 climate_nouns <- JSTOR_dtmofnouns(multiple_archives, word = "climate", sparse = 1, POStag = TRUE)
@@ -180,11 +186,11 @@ climate_freqwords <- JSTOR_freqwords(multiple_archives, climate_nouns, custom_st
 ```
 Figure 14. Words relating climate
 
-
 ```{r}
 #Figure 15
 cl_lithic_nouns <- JSTOR_dtmofnouns(multiple_archives, word = c("climate","lithic"), sparse = 1, POStag = TRUE)
 cl_lithic_freqwords <- JSTOR_freqwords(multiple_archives, cl_lithic_nouns, custom_stopwords, n = 5)
+
 ```
 Figure 15. Words relating climate and lithic
 
