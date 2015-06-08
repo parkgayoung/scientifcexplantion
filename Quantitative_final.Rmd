@@ -35,7 +35,7 @@ Three potential questions are related with my research subject that is about ste
 Based on my hypothesis, I make three questions:
 (1) Is there some relationship between the extinction of mammals such as mammoth and change of stone tool? If so, I would like to see the transition between phase to phase of stemmed point based on the theory of the extinction.
 (2) How can I connect the theory of evolution and the starting point of new lithics such as stemmed point in the Upper Paleolithic period?
- (3) Which attributes on lithics I should choose to figure out changing aspect of lithic according to climate change?
+(3) Which attributes on lithics I should choose to figure out changing aspect of lithic according to climate change?
 
 ##Key terms
 The keywords for this project are **lithic**, **extinction**, **evolution**, **climate**. I think these four words are apparently the most important key terms in my research questions to explore data collection. Through three different combinations of **lithic** and other keywords, I hope that I can find a certain clue of my further research.  
@@ -197,8 +197,17 @@ cl_lithic_freqwords <- JSTOR_freqwords(multiple_archives, cl_lithic_nouns, custo
 ```
 Figure 15. Words relating climate and lithic
 
+##Discussion and Conclusion
+
+Through this project, quantitative research, I could test whether my research questions are reasonable or not by getting frequency of key words in archaeological journals with statistical coding functions. My hypothesis drivers of introduction of new lithics, stemmed points in Upper Paleolithic might be related with evolution, extinction, and climate change. On the basis of the hypothesis, I make three research questions which ask (1) relationship between the extinction of mammals and change of stone tool (2) connection of evolution and the introduction of new lithics and (3) impact of climate on lithics. My key words to explore data base are **lithic**, **extinction**, **evolution**, **climate**. 
+
+Using several functions, I could derive the results of frequency, correlation, and associated words of the key words. The results say that my first question is reasonable to continue to analyze. It has right direction, at least using key words. However, the second set of keywords show unexpected results. I regarded evolution as genetic evolution to modern human but the results indicate cultural evolution and show unrelated words. For this reason, I should change my second research question or adjust it to be more reasonable. The results of third set say that the direction of my research question is reasonable but it is hard to demonstrate in archaeological data. To develop the question, I should consider the method to verify the relationship in archaeological record.  
+
+In conclusion, to build a model or develop a hypothesis, testing a few relating key words statistically could mark a milestone in the entire process of research. It can give a background knowledge as well as present right direction of research. But it also has limitations. Depending on the kinds of Journals and the number of ones in data base, the results can be different. Also, due to use of different terms for one notion, the result could be contaminated. However, mostly, the problems are related with technology such as problem in coding or one in computer. Therefore, if this method become popular and technology would develop following the popularity, then most of limitation would be solved. 
+
+##Reference
 
 
-##Discussion
+
 
 
