@@ -1,13 +1,21 @@
 ---
 title: "Quantitative assignment"
 author: "Gayoung Park"
+output: html_document
+bibliography:
+  - quan.bib
+---
+
+---
+title: "Quantitative assignment"
+author: "Gayoung Park"
 date: "June 4th, 2015"
 bibliography:
   - quan.bib
 output: rmarkdown::tufte_handout
 ---
 
-```{r setup, echo=FALSE, results='hide'}
+```{r setup, echo=FALSE, results='hide' }
 # install.packages(pkgs = "devtools", dependencies = TRUE)
 knitr::opts_chunk$set(message=FALSE, warning=FALSE, cache=TRUE, echo=FALSE)
 ```
@@ -20,8 +28,8 @@ library(devtools)
 ```{r, echo=FALSE, results='hide'}
 library("JSTORr")
 library(dplyr)
-#multiple_archives <- JSTOR_unpack_multiple_archives(mydir = "~/scientifcexplantion/data/one_gram")
-#save(multiple_archives, file="~/scientifcexplantion/data/one_gram/multiple_archives.RData")
+multiple_archives <- JSTOR_unpack_multiple_archives(mydir = "~/scientifcexplantion/data/one_gram")
+save(multiple_archives, file="~/scientifcexplantion/data/one_gram/multiple_archives.RData")
 load("data/one_gram/multiple_archives.RData")
 ```
 
@@ -60,16 +68,13 @@ extinction_tbl[which.max(extinction_tbl$word_ratio),]
 ```
 Figure 1. Frequency of extinction 
 
-
 ```{r}
 #Figure 2
 # two words
 ex_lithic <- JSTOR_2words(multiple_archives, "extinction", "lithic")
 ex_lithic$plot 
-#
 ```
 Figure 2. Frequency of extinction and lithic
-
 
 ```{r}
 #Figure 3
@@ -140,7 +145,6 @@ evolution_freqwords <- JSTOR_freqwords(multiple_archives, evolution_nouns, custo
 ```
 Figure 9. Words relating evolution
 
-
 ```{r}
 #Figure 10
 ev_lithic_nouns <- JSTOR_dtmofnouns(multiple_archives, word = c("evolution","lithic"), sparse = 1, POStag = TRUE)
@@ -163,7 +167,6 @@ climate_tbl[which.max(climate_tbl$word_ratio),]
 ```
 Figure 11. Frequency of climate 
 
-
 ```{r}
 #Figure 12
 # two words
@@ -171,8 +174,6 @@ cl_lithic <- JSTOR_2words(multiple_archives, "climate", "lithic")
 cl_lithic$plot
 ```
 Figure 12. Frequency of climate and lithic
-
-
 
 ```{r}
 #Figure 13
@@ -196,9 +197,5 @@ cl_lithic_freqwords <- JSTOR_freqwords(multiple_archives, cl_lithic_nouns, custo
 
 ```
 Figure 15. Words relating climate and lithic
-
-
-
-##Discussion
 
 
