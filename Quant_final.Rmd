@@ -96,9 +96,6 @@ custom_stopwords <- c('archaeology', 'university', 'research', 'evidence', 'jour
 ```{r, echo=FALSE, results='hide'}
 
 extinction_nouns <- JSTOR_dtmofnouns(multiple_archives, word = "extinction", sparse = 1, POStag = TRUE)
-```
-
-```{r}
 #Figure 4
 extinction_freqwords <- JSTOR_freqwords(multiple_archives, extinction_nouns, custom_stopwords, n = 5)
 ```
@@ -106,9 +103,6 @@ Figure 4. Words relating extinction
 
 ```{r, echo=FALSE, results='hide'}
 ex_lithic_nouns <- JSTOR_dtmofnouns(multiple_archives, word = c("extinction","lithic"), sparse = 1, POStag = TRUE)
-```
-
-```{r}
 #Figure 5
 ex_lithic_freqwords <- JSTOR_freqwords(multiple_archives, ex_lithic_nouns, custom_stopwords, n = 5)
 ```
@@ -147,9 +141,6 @@ Figure 8. Correlation of evolution and lithic
 
 ```{r, echo=FALSE, results='hide'}
 evolution_nouns <- JSTOR_dtmofnouns(multiple_archives, word = "evolution", sparse = 1, POStag = TRUE)
-```
-
-```{r}
 #Figure 9
 evolution_freqwords <- JSTOR_freqwords(multiple_archives, evolution_nouns, custom_stopwords, n = 5)
 ```
@@ -157,9 +148,6 @@ Figure 9. Words relating evolution
 
 ```{r,echo=FALSE, results='hide'}
 ev_lithic_nouns <- JSTOR_dtmofnouns(multiple_archives, word = c("evolution","lithic"), sparse = 1, POStag = TRUE)
-```
-
-```{r}
 #Figure 10
 ev_lithic_freqwords <- JSTOR_freqwords(multiple_archives, ev_lithic_nouns, custom_stopwords, n = 5)
 ```
@@ -198,9 +186,7 @@ Figure 13. Correlation of climate and lithic
 
 ```{r,echo=FALSE, results='hide'}
 climate_nouns <- JSTOR_dtmofnouns(multiple_archives, word = "climate", sparse = 1, POStag = TRUE)
-```
 
-```{r}
 #Figure 14
 climate_freqwords <- JSTOR_freqwords(multiple_archives, climate_nouns, custom_stopwords, n = 5)
 ```
@@ -208,9 +194,7 @@ Figure 14. Words relating climate
 
 ```{r,echo=FALSE, results='hide'}
 cl_lithic_nouns <- JSTOR_dtmofnouns(multiple_archives, word = c("climate","lithic"), sparse = 1, POStag = TRUE)
-```
 
-```{r}
 cl_lithic_freqwords <- JSTOR_freqwords(multiple_archives, cl_lithic_nouns, custom_stopwords, n = 5)
 ```
 Figure 15. Words relating climate and lithic
