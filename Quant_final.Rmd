@@ -93,16 +93,23 @@ nouns <- JSTOR_dtmofnouns(multiple_archives, sparse = 1, POStag = FALSE)
 custom_stopwords <- c('archaeology', 'university', 'research', 'evidence', 'journal', 'world', 'site', 'cambridge', 'archaeol', 'area', 'region', 'period', 'analysis', 'anthropology', 'springer', 'production', 'figure', 'work', 'world', 'concept', 'human', 'middle', 'altamira', 'culture', 'record', 'citation', 'discipline', 'author', 'proportion', 'literature', 'report', 'approach', 'cambridge' )
 ```
 
+```{r, echo=FALSE, results='hide'}
+
+extinction_nouns <- JSTOR_dtmofnouns(multiple_archives, word = "extinction", sparse = 1, POStag = TRUE)
+```
+
 ```{r}
 #Figure 4
-extinction_nouns <- JSTOR_dtmofnouns(multiple_archives, word = "extinction", sparse = 1, POStag = TRUE)
 extinction_freqwords <- JSTOR_freqwords(multiple_archives, extinction_nouns, custom_stopwords, n = 5)
 ```
 Figure 4. Words relating extinction
 
+```{r, echo=FALSE, results='hide'}
+ex_lithic_nouns <- JSTOR_dtmofnouns(multiple_archives, word = c("extinction","lithic"), sparse = 1, POStag = TRUE)
+```
+
 ```{r}
 #Figure 5
-ex_lithic_nouns <- JSTOR_dtmofnouns(multiple_archives, word = c("extinction","lithic"), sparse = 1, POStag = TRUE)
 ex_lithic_freqwords <- JSTOR_freqwords(multiple_archives, ex_lithic_nouns, custom_stopwords, n = 5)
 ```
 Figure 5. Words relating extinction and lithic
@@ -138,16 +145,22 @@ co_ev_lithic$plot
 ```
 Figure 8. Correlation of evolution and lithic
 
+```{r, echo=FALSE, results='hide'}
+evolution_nouns <- JSTOR_dtmofnouns(multiple_archives, word = "evolution", sparse = 1, POStag = TRUE)
+```
+
 ```{r}
 #Figure 9
-evolution_nouns <- JSTOR_dtmofnouns(multiple_archives, word = "evolution", sparse = 1, POStag = TRUE)
 evolution_freqwords <- JSTOR_freqwords(multiple_archives, evolution_nouns, custom_stopwords, n = 5)
 ```
 Figure 9. Words relating evolution
 
+```{r,echo=FALSE, results='hide'}
+ev_lithic_nouns <- JSTOR_dtmofnouns(multiple_archives, word = c("evolution","lithic"), sparse = 1, POStag = TRUE)
+```
+
 ```{r}
 #Figure 10
-ev_lithic_nouns <- JSTOR_dtmofnouns(multiple_archives, word = c("evolution","lithic"), sparse = 1, POStag = TRUE)
 ev_lithic_freqwords <- JSTOR_freqwords(multiple_archives, ev_lithic_nouns, custom_stopwords, n = 5)
 ```
 Figure 10. Words relating evolution and lithic
@@ -183,18 +196,22 @@ co_cl_lithic$plot
 ```
 Figure 13. Correlation of climate and lithic
 
+```{r,echo=FALSE, results='hide'}
+climate_nouns <- JSTOR_dtmofnouns(multiple_archives, word = "climate", sparse = 1, POStag = TRUE)
+```
+
 ```{r}
 #Figure 14
-climate_nouns <- JSTOR_dtmofnouns(multiple_archives, word = "climate", sparse = 1, POStag = TRUE)
 climate_freqwords <- JSTOR_freqwords(multiple_archives, climate_nouns, custom_stopwords, n = 5)
 ```
 Figure 14. Words relating climate
 
-```{r}
-
+```{r,echo=FALSE, results='hide'}
 cl_lithic_nouns <- JSTOR_dtmofnouns(multiple_archives, word = c("climate","lithic"), sparse = 1, POStag = TRUE)
-cl_lithic_freqwords <- JSTOR_freqwords(multiple_archives, cl_lithic_nouns, custom_stopwords, n = 5)
+```
 
+```{r}
+cl_lithic_freqwords <- JSTOR_freqwords(multiple_archives, cl_lithic_nouns, custom_stopwords, n = 5)
 ```
 Figure 15. Words relating climate and lithic
 
