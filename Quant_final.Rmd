@@ -6,14 +6,7 @@ bibliography:
   - quan.bib
 ---
 
----
-title: "Quantitative assignment"
-author: "Gayoung Park"
-date: "June 4th, 2015"
-bibliography:
-  - quan.bib
-output: rmarkdown::tufte_handout
----
+
 
 ```{r setup, echo=FALSE, results='hide' }
 # install.packages(pkgs = "devtools", dependencies = TRUE)
@@ -209,5 +202,4 @@ Using several functions, I could derive the results of frequency, correlation, a
 In conclusion, to build a model or develop a hypothesis, testing a few relating key words statistically could mark a milestone in the entire process of research. It can give a background knowledge as well as present right direction of research. But it also has limitations. Depending on the kinds of Journals and the number of ones in data base, the results can be different. Also, due to use of different terms for one notion, the result could be contaminated. However, mostly, the problems are related with technology such as problem in coding or one in computer. Therefore, if this method become popular and technology would develop following the popularity, then most of limitation would be solved. 
 
 ##Reference
-
 
